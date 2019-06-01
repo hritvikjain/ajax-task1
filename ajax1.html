@@ -1,0 +1,25 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>AJAX Task1</title>
+<link  href="ajax1.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<button id="2" onclick="myfunction()">For new quote</button>
+<div id="newquote">
+<h1>I'm nice at ping pong</h1>
+</div>
+<script>
+function myfunction(){
+	var  xhr= new XMLHttpRequest();
+	 xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("newquote").innerHTML =this.responseText;
+    }
+  };
+	xhr.open('GET','ajax.txt',true);
+	xhr.send();
+}
+</script>
+</body>
+</html>
